@@ -11,6 +11,8 @@ import CloseIcon from "../icons/close.svg";
 import MaskIcon from "../icons/mask.svg";
 import PluginIcon from "../icons/plugin.svg";
 
+import Logo from "../icons/logo.png";
+
 import Locale from "../locales";
 
 import { useAppConfig, useChatStore } from "../store";
@@ -27,6 +29,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useMobileScreen } from "../utils";
 import dynamic from "next/dynamic";
 import { showToast } from "./ui-lib";
+// import NextImage from "./exporter";
+import NextImage from "next/image";
 
 const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
@@ -117,13 +121,19 @@ export function SideBar(props: { className?: string }) {
     >
       <div className={styles["sidebar-header"]} data-tauri-drag-region>
         <div className={styles["sidebar-title"]} data-tauri-drag-region>
-          ChatGPT Next
+          畅春 ChatGPT
         </div>
         <div className={styles["sidebar-sub-title"]}>
-          Build your own AI assistant.
+          您的私人chatgpt
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
-          <ChatGptIcon />
+          {/*<ChatGptIcon />*/}
+          <NextImage
+              src={Logo.src}
+              alt="logo"
+              width={50}
+              height={50}
+          />
         </div>
       </div>
 
@@ -172,11 +182,11 @@ export function SideBar(props: { className?: string }) {
               <IconButton icon={<SettingsIcon />} shadow />
             </Link>
           </div>
-          <div className={styles["sidebar-action"]}>
-            <a href={REPO_URL} target="_blank">
-              <IconButton icon={<GithubIcon />} shadow />
-            </a>
-          </div>
+          {/*<div className={styles["sidebar-action"]}>*/}
+            {/*<a href={REPO_URL} target="_blank">*/}
+              {/*<IconButton icon={<GithubIcon />} shadow />*/}
+            {/*</a>*/}
+          {/*</div>*/}
         </div>
         <div>
           <IconButton
